@@ -34,7 +34,6 @@ jobs:
 
       - name: Run tests
         run: |
-          export PYTHONPATH=$PYTHONPATH:$(pwd)/keywords
           poetry run robot -v BROWSER:$BROWSER -v SERVER:$BASE_URL --test "*" tests/playwright_tests.robot
         env:
           BROWSER: Chrome
