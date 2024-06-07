@@ -28,10 +28,9 @@ jobs:
         run: |
           poetry install
 
-          - name: Install browser
-            run: |
-              pip install webdrivermanager
-              webdrivermanager chrome
+      - name: Install browsers
+        run: |
+          poetry pip install webdrivermanager
 
       - name: Run tests
         run: |

@@ -13,7 +13,6 @@ invoke = "^2.2.0"
 rellu = "^0.7"
 docutils = "^0.21.2"
 robotframework = "^7.0"
-
 robotframework-seleniumlibrary = "^6.3.0"
 robotframework-browser = "^18.5.1"
 
