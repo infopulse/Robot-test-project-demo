@@ -1,0 +1,43 @@
+name: selenium-test
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  # manual trigger
+  workflow_dispatch:
+
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      - name: Install dependencies
+        run: |
+          poetry install
+
+      - name: Run tests
+        run: |
+          export PYTHONPATH=$PYTHONPATH:$(pwd)/keywords && 
+          poetry run robot -v BROWSER:$BROWSER -v SERVER:$BASE_URL --test "*" tests/selenium_tests.robot
+        env:
+          BROWSER: Chrome
+          BASE_URL: 'https://coffee-cart.app/'
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-traces
+          path: test-results/

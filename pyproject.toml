@@ -1,0 +1,23 @@
+# pyproject.toml
+[tool.poetry]
+name = "robot-test-project-template"
+version = "1.0.0"
+description = "Some basis to work with selenium and robot framework"
+authors = ["Oleksii Ostapov <oleksii.ostapov@infopulse.com>"]
+readme = "readme.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+invoke = "^2.2.0"
+rellu = "^0.7"
+docutils = "^0.21.2"
+robotframework = "^7.0"
+
+robotframework-seleniumlibrary = "^6.3.0"
+robotframework-browser = "^18.5.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
