@@ -30,7 +30,7 @@ jobs:
 
       - name: Install browsers
         run: |
-          poetry run pip install webdrivermanager
+          pip install webdrivermanager
 
       - name: Run tests
         run: |
