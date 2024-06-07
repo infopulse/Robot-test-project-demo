@@ -1,4 +1,4 @@
-name: selenium-test
+name: playwright-test
 on:
   push:
     branches: [ main, master ]
