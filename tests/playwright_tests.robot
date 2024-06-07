@@ -5,7 +5,6 @@ Library   Browser
 *** Variables ***
 ${SERVER}        https://coffee-cart.app/
 ${BROWSER}        Chrome
-${DELAY}          0
 
 
 *** Test Cases ***

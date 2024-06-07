@@ -28,15 +28,14 @@ jobs:
         run: |
           poetry install
 
-          - name: Install browser
+          - name: Install node dependencies
             run: |
-              pip install webdrivermanager
-              webdrivermanager chrome
+              run rfbrowser init
 
       - name: Run tests
         run: |
           export PYTHONPATH=$PYTHONPATH:$(pwd)/keywords
-          poetry run robot -v BROWSER:$BROWSER -v SERVER:$BASE_URL --test "*" tests/selenium_tests.robot
+          poetry run robot -v BROWSER:$BROWSER -v SERVER:$BASE_URL --test "*" tests/playwright_tests.robot
         env:
           BROWSER: Chrome
           BASE_URL: 'https://coffee-cart.app/'
